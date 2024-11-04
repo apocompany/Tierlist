@@ -154,6 +154,11 @@ button i {
     gap: 10px;
 }
 
+.bench-items.drag-over {
+    border-color: #007bff;
+    background-color: #f8f9fa;
+}
+
 .element {
     width: 150px;
     background-color: white;
@@ -416,9 +421,29 @@ button i {
 .basic-mode .change-tier-color,
 .basic-mode .tier-color-input,
 .basic-mode #add-tier,
-.basic-mode #add-element,
-.basic-mode .tier-name input {
+.basic-mode #add-element {
     display: none !important;
+}
+
+.basic-mode .bench {
+    display: block !important;
+}
+
+.basic-mode .bench-items {
+    display: flex !important;
+    border: 2px dashed #ddd;
+    min-height: 100px;
+}
+
+.basic-mode .element {
+    cursor: grab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.basic-mode .element:active {
+    cursor: grabbing;
 }
 
 .basic-mode .tier-name {
@@ -426,6 +451,7 @@ button i {
     background: none;
     padding: 5px;
     width: auto;
+    display: block !important;
 }
 
 .basic-mode .tier-name input {
@@ -437,18 +463,6 @@ button i {
     font-weight: bold;
     width: auto;
     padding: 0;
-}
-
-.basic-mode .tier-name input:focus {
-    outline: none;
-}
-
-.basic-mode .element {
-    cursor: grab;
-}
-
-.basic-mode .element:active {
-    cursor: grabbing;
 }
 
 .basic-mode .tier-label {

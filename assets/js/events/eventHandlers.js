@@ -4,6 +4,7 @@ import { setupTutorial } from '../services/tutorial.js';
 import { initialData } from '../config/initialData.js';
 import { createElementFromTemplate } from '../utils/elementUtils.js';
 import { createTierFromTemplate } from '../utils/tierUtils.js';
+import { handleDragOver, handleDrop, handleDragLeave } from '../utils/dragAndDrop.js';
 
 export function setupEventListeners() {
     // Botones principales
@@ -78,4 +79,10 @@ export function setupEventListeners() {
 
     // Guardar el título cuando cambie
     document.getElementById('tierlist-title').addEventListener('change', saveCurrentState);
+
+    // Añadir event listeners para la banca
+    const benchItems = document.querySelector('.bench-items');
+    benchItems.addEventListener('dragover', handleDragOver);
+    benchItems.addEventListener('drop', handleDrop);
+    benchItems.addEventListener('dragleave', handleDragLeave);
 } 
