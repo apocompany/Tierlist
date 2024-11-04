@@ -22,5 +22,11 @@ export function setupEditMode() {
             toggleButton.innerHTML = '<i class="fas fa-edit"></i> Modo Básico';
         }
         localStorage.setItem('editMode', !isBasicMode);
+        
+        // Asegurar que los elementos siguen siendo arrastrables
+        const elements = document.querySelectorAll('.element');
+        elements.forEach(element => {
+            element.draggable = true;
+        });
     }
-} 
+}

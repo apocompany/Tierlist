@@ -165,8 +165,7 @@ button i {
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 5px;
-    cursor: move;
-    position: relative;
+    cursor: grab;
 }
 
 .element:hover {
@@ -178,17 +177,22 @@ button i {
     flex-direction: column;
     align-items: center;
     gap: 5px;
+    cursor: grab;
 }
 
 .element-text {
     text-align: center;
     word-break: break-word;
+    cursor: grab;
 }
 
 .element-image {
     max-width: 100%;
     max-height: 100px;
     object-fit: contain;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .element-actions {
@@ -474,4 +478,16 @@ button i {
 .basic-mode .tier-name button,
 .basic-mode .tier-name .tier-color-input {
     display: none !important;
+}
+
+.basic-mode .element-content,
+.basic-mode .element-image,
+.basic-mode .element-text {
+    cursor: grab;
+}
+
+.basic-mode .element-content:active,
+.basic-mode .element-image:active,
+.basic-mode .element-text:active {
+    cursor: grabbing;
 }
