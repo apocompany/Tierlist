@@ -4,6 +4,7 @@ import { createTierFromTemplate } from '../utils/tierUtils.js';
 export function saveCurrentState() {
     const data = {
         title: document.getElementById('tierlist-title').value,
+        criteria: document.getElementById('tierlist-criteria').value,
         tiers: [],
         bench: []
     };
@@ -11,7 +12,7 @@ export function saveCurrentState() {
     // Guardar tiers
     document.querySelectorAll('.tier').forEach(tier => {
         const tierData = {
-            name: tier.querySelector('.tier-name').value,
+            name: tier.querySelector('.tier-input').value,
             color: tier.style.backgroundColor || '#f8f9fa',
             items: []
         };
@@ -49,6 +50,7 @@ export function loadState(data) {
     document.getElementById('tierlist').innerHTML = '';
     document.getElementById('bench').innerHTML = '';
     document.getElementById('tierlist-title').value = data.title;
+    document.getElementById('tierlist-criteria').value = data.criteria || '';
 
     // Cargar tiers
     data.tiers.forEach(tierData => {

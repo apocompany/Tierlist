@@ -5,7 +5,7 @@ export function createTierFromTemplate(name, color = '#f8f9fa') {
     const template = document.getElementById('tier-template');
     const tier = template.content.cloneNode(true).querySelector('.tier');
     
-    tier.querySelector('.tier-name').value = name;
+    tier.querySelector('.tier-input').value = name;
     tier.style.backgroundColor = color;
     setupTierListeners(tier);
     
@@ -15,7 +15,7 @@ export function createTierFromTemplate(name, color = '#f8f9fa') {
 export function setupTierListeners(tier) {
     const items = tier.querySelector('.tier-items');
     const deleteButton = tier.querySelector('.delete-tier');
-    const nameInput = tier.querySelector('.tier-name');
+    const nameInput = tier.querySelector('.tier-input');
     const colorButton = tier.querySelector('.change-tier-color');
     const colorInput = tier.querySelector('.tier-color-input');
 

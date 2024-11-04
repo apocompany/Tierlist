@@ -53,6 +53,10 @@ export function setupTutorial() {
             {
                 element: '#clear-tierlist',
                 intro: 'Elimina todos los elementos'
+            },
+            {
+                element: '#toggle-edit-mode',
+                intro: 'Alterna entre el modo básico (solo arrastrar elementos) y el modo edición (todas las funciones)'
             }
         ],
         nextLabel: 'Siguiente >',

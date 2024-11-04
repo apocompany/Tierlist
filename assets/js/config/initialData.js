@@ -1,5 +1,6 @@
 export const initialData = {
     title: "Sistemas del Cuerpo Humano",
+    criteria: "Clasificación basada en la importancia vital y la dependencia de otros sistemas para la supervivencia inmediata del organismo",
     tiers: [
         { 
             name: "S", 

@@ -11,7 +11,10 @@
 <body>
     <div class="container">
         <div class="header">
-            <input type="text" id="tierlist-title" value="Sistemas del Cuerpo Humano" class="title-input" data-intro="Aquí puedes cambiar el título de tu TierList">
+            <div class="title-section">
+                <input type="text" id="tierlist-title" value="Sistemas del Cuerpo Humano" class="title-input scrolling-text" data-intro="Aquí puedes cambiar el título de tu TierList">
+                <input type="text" id="tierlist-criteria" class="criteria-input" placeholder="Describe el criterio de clasificación..." data-intro="Define el criterio bajo el cual clasificarás los elementos">
+            </div>
             <div class="actions">
                 <button id="add-tier" data-intro="Añade un nuevo tier"><i class="fas fa-plus"></i> Añadir Tier</button>
                 <button id="save-json" data-intro="Guarda tu progreso"><i class="fas fa-save"></i> Guardar</button>
@@ -20,6 +23,9 @@
                 <button id="reset-tierlist"><i class="fas fa-undo"></i> Resetear</button>
                 <button id="clear-tierlist"><i class="fas fa-trash-alt"></i> Vaciar</button>
                 <button id="start-tutorial"><i class="fas fa-question-circle"></i> Tutorial</button>
+                <button id="toggle-edit-mode" class="mode-toggle" data-intro="Alterna entre modo básico y avanzado">
+                    <i class="fas fa-edit"></i> Modo Edición
+                </button>
                 <input type="file" id="json-file" accept=".json" style="display: none">
             </div>
         </div>
@@ -62,10 +68,12 @@
     <template id="tier-template">
         <div class="tier">
             <div class="tier-label">
-                <input type="text" class="tier-name" value="">
-                <button class="delete-tier"><i class="fas fa-times"></i></button>
-                <button class="change-tier-color"><i class="fas fa-palette"></i></button>
-                <input type="color" class="tier-color-input" style="display: none">
+                <div class="tier-name">
+                    <input type="text" value="" class="tier-input">
+                    <button class="delete-tier"><i class="fas fa-times"></i></button>
+                    <button class="change-tier-color"><i class="fas fa-palette"></i></button>
+                    <input type="color" class="tier-color-input" style="display: none">
+                </div>
             </div>
             <div class="tier-items"></div>
         </div>

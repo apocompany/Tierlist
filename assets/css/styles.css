@@ -22,8 +22,7 @@ body {
 .header {
     margin-bottom: 20px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     gap: 20px;
 }
 
@@ -33,16 +32,26 @@ body {
     border: none;
     padding: 5px;
     border-radius: 4px;
-    flex-grow: 1;
+    width: 100%;
+    min-width: 600px;
+    position: relative;
+    overflow: hidden;
 }
 
 .title-input:focus {
     outline: 2px solid #007bff;
 }
 
+.title-input.animate {
+    position: absolute;
+    animation: scroll-text 8s linear infinite;
+}
+
 .actions {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 button {
@@ -91,6 +100,21 @@ button i {
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.tier-name input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.tier-name input.animate {
+    position: absolute;
+    animation: scroll-text 8s linear infinite;
 }
 
 .tier-items {
@@ -326,4 +350,114 @@ button i {
 
 .introjs-tooltiptext {
     color: black;
+}
+
+/* Estilos para el criterio */
+.title-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.criteria-input {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    min-height: 60px;
+    resize: vertical;
+    font-family: Arial, sans-serif;
+}
+
+.criteria-input:focus {
+    outline: 2px solid #007bff;
+}
+
+/* Animación de desplazamiento para textos largos */
+@keyframes scroll-text {
+    0% { 
+        left: 0;
+    }
+    50% { 
+        left: calc(-100% + 70px);
+    }
+    50.1% {
+        left: 70px;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+.scrolling-text {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.scrolling-text.animate {
+    animation: scroll-text 8s linear infinite;
+}
+
+/* Añadir estos estilos */
+.mode-toggle.active {
+    background-color: #28a745;
+}
+
+.mode-toggle.active:hover {
+    background-color: #218838;
+}
+
+/* Cuando el modo edición está desactivado */
+.basic-mode .element-actions,
+.basic-mode .delete-tier,
+.basic-mode .change-tier-color,
+.basic-mode .tier-color-input,
+.basic-mode #add-tier,
+.basic-mode #add-element,
+.basic-mode .tier-name input {
+    display: none !important;
+}
+
+.basic-mode .tier-name {
+    border: none;
+    background: none;
+    padding: 5px;
+    width: auto;
+}
+
+.basic-mode .tier-name input {
+    pointer-events: none;
+    display: block !important;
+    border: none;
+    background: none;
+    color: #333;
+    font-weight: bold;
+    width: auto;
+    padding: 0;
+}
+
+.basic-mode .tier-name input:focus {
+    outline: none;
+}
+
+.basic-mode .element {
+    cursor: grab;
+}
+
+.basic-mode .element:active {
+    cursor: grabbing;
+}
+
+.basic-mode .tier-label {
+    background: none;
+    border: none;
+    width: auto;
+}
+
+.basic-mode .tier-name button,
+.basic-mode .tier-name .tier-color-input {
+    display: none !important;
 }
