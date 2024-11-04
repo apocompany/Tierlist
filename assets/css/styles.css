@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.title-input {
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    padding: 5px;
+    border-radius: 4px;
+    flex-grow: 1;
+}
+
+.title-input:focus {
+    outline: 2px solid #007bff;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button i {
+    font-size: 14px;
+}
+
+.tierlist {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tier {
+    display: flex;
+    gap: 10px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.tier-label {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.tier-name {
+    width: 80px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.tier-items {
+    flex-grow: 1;
+    min-height: 80px;
+    background-color: #fff;
+    border: 2px dashed #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.bench {
+    margin-top: 20px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.bench-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.bench-items {
+    min-height: 100px;
+    background-color: #fff;
+    border: 2px dashed #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.element {
+    width: 150px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: move;
+    position: relative;
+}
+
+.element:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.element-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.element-text {
+    text-align: center;
+    word-break: break-word;
+}
+
+.element-image {
+    max-width: 100%;
+    max-height: 100px;
+    object-fit: contain;
+}
+
+.element-actions {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.element-actions button {
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.delete-tier {
+    padding: 4px 8px;
+    background-color: #dc3545;
+}
+
+.delete-tier:hover {
+    background-color: #c82333;
+}
+
+.drag-over {
+    border-color: #007bff;
+    background-color: #f8f9fa;
+}
+
+/* Estilos mejorados para el modal de detalles */
+.element-detail-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.element-detail-modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.element-detail-content {
+    position: relative;
+    background-color: white;
+    padding: 30px;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.close-detail {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    font-size: 28px;
+    color: #666;
+    transition: color 0.3s;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.close-detail:hover {
+    color: #333;
+    background-color: #f0f0f0;
+}
+
+#detail-title {
+    font-size: 24px;
+    color: #333;
+    margin-right: 40px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.element-detail-image {
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    margin: 15px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-options {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.image-options label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #555;
+    font-size: 14px;
+}
+
+.element-detail-description {
+    width: 100%;
+    min-height: 150px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+.element-detail-description:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.element-detail-description::placeholder {
+    color: #999;
+}
+
+.color-picker {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Estilos para el tutorial con letras negras */
+.introjs-tooltip {
+    background-color: white;
+    color: black;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.introjs-button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    text-shadow: none;
+}
+
+.introjs-button:hover {
+    background-color: #0056b3;
+}
+
+.introjs-helperLayer {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.introjs-tooltiptext {
+    color: black;
+}
